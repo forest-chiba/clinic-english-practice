@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリニック受付 英会話練習</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 800px; /* 少し広めに */
+            width: 100%;
+            box-sizing: border-box;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em; /* 少し大きく */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .question-wrapper {
+            margin-bottom: 35px; /* 各質問の間隔を少し広めに */
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0; /* 質問ごとの区切り線 */
+        }
+        .question-wrapper:last-of-type {
+            border-bottom: none; /* 最後の質問には線なし */
+        }
+
+        .question-section, .answer-section {
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .question-section {
+            background-color: #e8f0f8; /* 薄い青 */
+            border-left: 5px solid #3498db;
+        }
+
+        .answer-section {
+            background-color: #f7fcfb; /* 薄い緑 */
+            border-left: 5px solid #2ecc71;
+            margin-top: 20px; /* 質問と回答セクションの間隔 */
+        }
+
+        .question-text, .answer-text {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .japanese-translation {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .option-button {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 10px; /* ボタン間のスペースを調整 */
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .option-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .option-button:active {
+            background-color: #2471a3;
+            transform: translateY(0);
+        }
+
+        .option-button .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        /* Q1のように回答ボタンがない場合の調整 */
+        .answer-section.no-buttons {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>クリニック受付 英会話練習</h1>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q01. Welcome to our clinic. How may I help you today?</p>
+                <p class="japanese-translation">本日はどのようなご用件でしょうか。</p>
+                <audio controls>
+                    <source src="Q01.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section no-buttons">
+                </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q02. Do you have an appointment?</p>
+                <p class="japanese-translation">ご予約はお取りですか。</p>
+                <audio controls>
+                    <source src="Q02.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q02_Y.mp3')">
+                    <span class="icon">&#10003;</span> Sure, I have an appointment.
+                    <audio id="audio-Q02_Y" src="Q02_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q02_N.mp3')">
+                    <span class="icon">&#10006;</span> No, not yet... Can I make one now?
+                    <audio id="audio-Q02_N" src="Q02_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q03. Is this your first visit to our clinic?</p>
+                <p class="japanese-translation">当院にいらっしゃるのは初めてですか。</p>
+                <audio controls>
+                    <source src="Q03.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q03_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, this is my first time here.
+                    <audio id="audio-Q03_Y" src="Q03_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q03_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’ve visited before.
+                    <audio id="audio-Q03_N" src="Q03_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q04. Do you have your health insurance card or My Number card?</p>
+                <p class="japanese-translation">保険証かマイナンバーカードはお持ちですか。</p>
+                <audio controls>
+                    <source src="Q04.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q04_Y.mp3')">
+                    <span class="icon">&#10003;</span> Of course, I brought my insurance card.
+                    <audio id="audio-Q04_Y" src="Q04_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q04_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I forgot it... Is that okay?
+                    <audio id="audio-Q04_N" src="Q04_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q05. Have you contacted us before, by phone or through our website?</p>
+                <p class="japanese-translation">当院に電話かホームページで問い合わせをしたことはありますか。</p>
+                <audio controls>
+                    <source src="Q05.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q05_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I sent a message through your website.
+                    <audio id="audio-Q05_Y" src="Q05_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q05_N.mp3')">
+                    <span class="icon">&#10006;</span> No, this is my first contact.
+                    <audio id="audio-Q05_N" src="Q05_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q06. May I have the patient's name, please?</p>
+                <p class="japanese-translation">確認しますので、お名前を伺えますか。</p>
+                <audio controls>
+                    <source src="Q06.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q06_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, my name is John Smith.
+                    <audio id="audio-Q06_Y" src="Q06_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q06_N.mp3')">
+                    <span class="icon">&#10006;</span> I’m here for someone else. Can I give you their name?
+                    <audio id="audio-Q06_N" src="Q06_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q07. Do you have a medical assistance certificate?</p>
+                <p class="japanese-translation">医療券（医療扶助）はお持ちですか。</p>
+                <audio controls>
+                    <source src="Q07.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q07_Y.mp3')">
+                    <span class="icon">&#10003;</span> Absolutely, here it is.
+                    <audio id="audio-Q07_Y" src="Q07_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q07_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I don’t have one… but I think I might need it.
+                    <audio id="audio-Q07_N" src="Q07_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q08. Do you have a child medical subsidy certificate?</p>
+                <p class="japanese-translation">こども医療券はお持ちですか。</p>
+                <audio controls>
+                    <source src="Q08.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q08_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I have the child subsidy card.
+                    <audio id="audio-Q08_Y" src="Q08_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q08_N.mp3')">
+                    <span class="icon">&#10006;</span> No, not yet... should I apply for one?
+                    <audio id="audio-Q08_N" src="Q08_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q09. Are you the patient?</p>
+                <p class="japanese-translation">あなたは（患者）ご本人様ですか。</p>
+                <audio controls>
+                    <source src="Q09.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q09_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I’m the patient.
+                    <audio id="audio-Q09_Y" src="Q09_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q09_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’m a family member helping today.
+                    <audio id="audio-Q09_N" src="Q09_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q10. Did you come here alone today?</p>
+                <p class="japanese-translation">本日はおひとりですか。</p>
+                <audio controls>
+                    <source src="Q10.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q10_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I came by myself.
+                    <audio id="audio-Q10_Y" src="Q10_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q10_N.mp3')">
+                    <span class="icon">&#10006;</span> No, my friend came with me.
+                    <audio id="audio-Q10_N" src="Q10_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q11. Who is here to see the doctor today?</p>
+                <p class="japanese-translation">診察を希望するのはどなたですか。</p>
+                <audio controls>
+                    <source src="Q11.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q11_Y.mp3')">
+                    <span class="icon">&#10003;</span> My son is here to see the doctor.
+                    <audio id="audio-Q11_Y" src="Q11_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q11_N.mp3')">
+                    <span class="icon">&#10006;</span> They’re coming soon. I’m just checking in first.
+                    <audio id="audio-Q11_N" src="Q11_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q12. Does anyone here speak Japanese?</p>
+                <p class="japanese-translation">この中に日本語の理解できる方はいますか。</p>
+                <audio controls>
+                    <source src="Q12.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q12_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, someone here understands Japanese.
+                    <audio id="audio-Q12_Y" src="Q12_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q12_N.mp3')">
+                    <span class="icon">&#10006;</span> No, no one here speaks Japanese.
+                    <audio id="audio-Q12_N" src="Q12_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q13. Do you have a referral letter?</p>
+                <p class="japanese-translation">紹介状はお持ちですか。</p>
+                <audio controls>
+                    <source src="Q13.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q13_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I have a referral letter with me.
+                    <audio id="audio-Q13_Y" src="Q13_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q13_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I don’t have one right now.
+                    <audio id="audio-Q13_N" src="Q13_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q14. May we keep your referral letter for a moment? We’ll return it shortly.</p>
+                <p class="japanese-translation">紹介状をお預かりしてもよろしいですか。すぐお返しします。</p>
+                <audio controls>
+                    <source src="Q14.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q14_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, please hold on to it for a moment.
+                    <audio id="audio-Q14_Y" src="Q14_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q14_N.mp3')">
+                    <span class="icon">&#10006;</span> I’m sorry, I need to hold on to it for now.
+                    <audio id="audio-Q14_N" src="Q14_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q15. May I ask what kind of document that is?</p>
+                <p class="japanese-translation">今手に持っている書類は何ですか。</p>
+                <audio controls>
+                    <source src="Q15.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q15_Y.mp3')">
+                    <span class="icon">&#10003;</span> It’s a medical form from another clinic.
+                    <audio id="audio-Q15_Y" src="Q15_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q15_N.mp3')">
+                    <span class="icon">&#10006;</span> It’s just a personal note.
+                    <audio id="audio-Q15_N" src="Q15_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q16. Where did you receive this document?</p>
+                <p class="japanese-translation">その書類はどこで受け取りましたか？</p>
+                <audio controls>
+                    <source src="Q16.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q16_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I received it from my previous doctor.
+                    <audio id="audio-Q16_Y" src="Q16_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q16_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I don’t remember where I got it.
+                    <audio id="audio-Q16_N" src="Q16_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q17. Is this a form that needs to be filled out by a doctor and submitted by you?</p>
+                <p class="japanese-translation">この書類は、医師が記入し、あなたが提出する必要があるという認識でよろしいですか？</p>
+                <audio controls>
+                    <source src="Q17.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q17_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, that’s correct.
+                    <audio id="audio-Q17_Y" src="Q17_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q17_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’m not sure.
+                    <audio id="audio-Q17_N" src="Q17_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q18. When is the deadline for submitting this document?</p>
+                <p class="japanese-translation">いつまでに提出する必要がありますか？</p>
+                <audio controls>
+                    <source src="Q18.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q18_Y.mp3')">
+                    <span class="icon">&#10003;</span> I need to submit it by tomorrow.
+                    <audio id="audio-Q18_Y" src="Q18_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q18_N.mp3')">
+                    <span class="icon">&#10006;</span> I’m not sure. There’s no date written here.
+                    <audio id="audio-Q18_N" src="Q18_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q19. To write a medical certificate, a consultation with the doctor is required.</p>
+                <p class="japanese-translation">診断書の作成には診察が必要です。</p>
+                <audio controls>
+                    <source src="Q19.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q19_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I understand that.
+                    <audio id="audio-Q19_Y" src="Q19_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q19_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I didn’t know that.
+                    <audio id="audio-Q19_N" src="Q19_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q20. Would you like to see the doctor today, or make an appointment for another day?</p>
+                <p class="japanese-translation">本日の診察をご希望ですか。それとも（後日の）予約をご希望ですか。</p>
+                <audio controls>
+                    <source src="Q20.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q20_Y.mp3')">
+                    <span class="icon">&#10003;</span> I’d like to see the doctor today, if possible.
+                    <audio id="audio-Q20_Y" src="Q20_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q20_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’d prefer to make a reservation.
+                    <audio id="audio-Q20_N" src="Q20_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q21. Is this your first time seeing a psychiatrist?</p>
+                <p class="japanese-translation">精神科の受診は初めてですか。</p>
+                <audio controls>
+                    <source src="Q21.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q21_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, this is my first time.
+                    <audio id="audio-Q21_Y" src="Q21_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q21_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’ve seen a psychiatrist before.
+                    <audio id="audio-Q21_N" src="Q21_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q22. Have you ever been hospitalized for psychiatric reasons?</p>
+                <p class="japanese-translation">（精神科）入院歴はありますか。</p>
+                <audio controls>
+                    <source src="Q22.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q22_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I have been hospitalized before.
+                    <audio id="audio-Q22_Y" src="Q22_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q22_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’ve never been hospitalized.
+                    <audio id="audio-Q22_N" src="Q22_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q23. If you have been hospitalized, we require a referral letter for your visit.</p>
+                <p class="japanese-translation">その場合、当院の受診には紹介状が必要です。</p>
+                <audio controls>
+                    <source src="Q23.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q23_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I understand that a referral is needed.
+                    <audio id="audio-Q23_Y" src="Q23_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q23_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I didn’t know I needed one.
+                    <audio id="audio-Q23_N" src="Q23_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q24. I’m sorry, but our clinic sees patients by appointment only, so it may be difficult to see the doctor today.</p>
+                <p class="japanese-translation">申し訳ありませんが、当院は予約制のため、本日の診察は難しいかもしれません</p>
+                <audio controls>
+                    <source src="Q24.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q24_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I understand appointments are required.
+                    <audio id="audio-Q24_Y" src="Q24_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q24_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I wasn’t aware of the appointment rule.
+                    <audio id="audio-Q24_N" src="Q24_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q25. We need to check with the doctor regarding an appointment for another day.</p>
+                <p class="japanese-translation">明日以降の診察については、医師に確認する必要があります。</p>
+                <audio controls>
+                    <source src="Q25.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q25_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, please check with the doctor.
+                    <audio id="audio-Q25_Y" src="Q25_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q25_N.mp3')">
+                    <span class="icon">&#10006;</span> Okay, please let me know once it’s confirmed.
+                    <audio id="audio-Q25_N" src="Q25_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q26. Appointments are currently full, so the next available day might be later.</p>
+                <p class="japanese-translation">予約が混んでいるため、ご案内できる日は少し先になる可能性があります。</p>
+                <audio controls>
+                    <source src="Q26.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q26_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I understand it may take some time.
+                    <audio id="audio-Q26_Y" src="Q26_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q26_N.mp3')">
+                    <span class="icon">&#10006;</span> Okay, please let me know the soonest available date.
+                    <audio id="audio-Q26_N" src="Q26_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q27. I’m sorry, but it may be difficult to schedule something this week.</p>
+                <p class="japanese-translation">申し訳ありませんが、今週の調整は難しいかもしれません</p>
+                <audio controls>
+                    <source src="Q27.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q27_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, that’s okay.
+                    <audio id="audio-Q27_Y" src="Q27_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q27_N.mp3')">
+                    <span class="icon">&#10006;</span> Is there a cancellation list I could join?
+                    <audio id="audio-Q27_N" src="Q27_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q28. We’ll check with the doctor to see if your preferred date is possible.</p>
+                <p class="japanese-translation">ご希望の日程が可能かどうか、医師に確認します</p>
+                <audio controls>
+                    <source src="Q28.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q28_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, please check if it’s possible.
+                    <audio id="audio-Q28_Y" src="Q28_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q28_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I was hoping for a specific date.
+                    <audio id="audio-Q28_N" src="Q28_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q29. Unfortunately, we may not be able to accommodate your request.</p>
+                <p class="japanese-translation">申し訳ありませんが、ご希望に沿えない可能性があります</p>
+                <audio controls>
+                    <source src="Q29.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q29_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I understand.
+                    <audio id="audio-Q29_Y" src="Q29_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q29_N.mp3')">
+                    <span class="icon">&#10006;</span> If someone cancels, could I be notified?
+                    <audio id="audio-Q29_N" src="Q29_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q30. If it’s urgent, you might want to consider another clinic that can see you sooner.</p>
+                <p class="japanese-translation">お急ぎであれば、もっと早く診てもらえるクリニックをご検討いただくのも一つかと思います</p>
+                <audio controls>
+                    <source src="Q30.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q30_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I understand. I’ll consider that.
+                    <audio id="audio-Q30_Y" src="Q30_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q30_N.mp3')">
+                    <span class="icon">&#10006;</span> I’d rather wait for this clinic, even if it takes time.
+                    <audio id="audio-Q30_N" src="Q30_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q31. Can the patient come to our clinic for the consultation at a later date?</p>
+                <p class="japanese-translation">後日、患者本人が当院に来院することはできますか？</p>
+                <audio controls>
+                    <source src="Q31.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q31_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, they can come on another day.
+                    <audio id="audio-Q31_Y" src="Q31_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q31_N.mp3')">
+                    <span class="icon">&#10006;</span> No, they’re not able to visit due to their condition.
+                    <audio id="audio-Q31_N" src="Q31_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q32. Do you have your medication record? May we take a quick look?</p>
+                <p class="japanese-translation">薬手帳（またはそれに準ずるもの）はお持ちですか。いったんお借りしていいですか。</p>
+                <audio controls>
+                    <source src="Q32.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q32_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I have my medication record here.
+                    <audio id="audio-Q32_Y" src="Q32_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q32_N.mp3')">
+                    <span class="icon">&#10006;</span> I’m sorry, I forgot it at home.
+                    <audio id="audio-Q32_N" src="Q32_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q33. How many days of medication do you have left?</p>
+                <p class="japanese-translation">（手元の）薬はあと何日分残っていますか。</p>
+                <audio controls>
+                    <source src="Q33.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q33_Y.mp3')">
+                    <span class="icon">&#10003;</span> I have about three days’ worth of medication left.
+                    <audio id="audio-Q33_Y" src="Q33_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q33_N.mp3')">
+                    <span class="icon">&#10006;</span> I’ve already run out of medication.
+                    <audio id="audio-Q33_N" src="Q33_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q34. If you need medication, you’ll need to see the doctor first.</p>
+                <p class="japanese-translation">お薬が必要な場合は、まず医師の診察が必要です</p>
+                <audio controls>
+                    <source src="Q34.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q34_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I need a prescription today.
+                    <audio id="audio-Q34_Y" src="Q34_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q34_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I don’t need any medication right now.
+                    <audio id="audio-Q34_N" src="Q34_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q35. Please take a seat and fill out this form. Just let us know when you're done.</p>
+                <p class="japanese-translation">椅子に座って、この用紙に記入してください。終わったら教えてくださいね</p>
+                <audio controls>
+                    <source src="Q35.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q35_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I’ll fill it out now.
+                    <audio id="audio-Q35_Y" src="Q35_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q35_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I need some help filling it out.
+                    <audio id="audio-Q35_N" src="Q35_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q36. Please take a seat and wait just a moment.</p>
+                <p class="japanese-translation">どうぞお座りになって、少しの間お待ちください</p>
+                <audio controls>
+                    <source src="Q36.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q36_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I’ll wait here.
+                    <audio id="audio-Q36_Y" src="Q36_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q36_N.mp3')">
+                    <span class="icon">&#10006;</span> No, I’ll wait outside.
+                    <audio id="audio-Q36_N" src="Q36_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q37. We’ll contact you once we have an update.</p>
+                <p class="japanese-translation">進展があり次第、ご連絡します</p>
+                <audio controls>
+                    <source src="Q37.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q37_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, please contact me later.
+                    <audio id="audio-Q37_Y" src="Q37_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q37_N.mp3')">
+                    <span class="icon">&#10006;</span> Thank you, but I’ll follow up myself.
+                    <audio id="audio-Q37_N" src="Q37_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q38. Can you read emails in Japanese, or is there someone who can read them for you?</p>
+                <p class="japanese-translation">メールは日本語で送っても読めますか？（代理で読める人がいますか）</p>
+                <audio controls>
+                    <source src="Q38.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your answer:</p>
+                <button class="option-button" onclick="playAudio('Q38_Y.mp3')">
+                    <span class="icon">&#10003;</span> Yes, I can read Japanese emails.
+                    <audio id="audio-Q38_Y" src="Q38_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q38_N.mp3')">
+                    <span class="icon">&#10006;</span> No, someone else will read it for me.
+                    <audio id="audio-Q38_N" src="Q38_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <div class="question-wrapper">
+            <div class="question-section">
+                <p class="question-text">Q39. Take care and have a good day.</p>
+                <p class="japanese-translation">おつかれさまでした（気を付けてお帰りください）</p>
+                <audio controls>
+                    <source src="Q39.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="answer-section">
+                <p class="question-text">Choose your response:</p>
+                <button class="option-button" onclick="playAudio('Q39_Y.mp3')">
+                    <span class="icon">&#128075;</span> Yes, thank you.
+                    <audio id="audio-Q39_Y" src="Q39_Y.mp3" type="audio/mpeg"></audio>
+                </button>
+                <button class="option-button" onclick="playAudio('Q39_N.mp3')">
+                    <span class="icon">&#128075;</span> Thanks, you too!
+                    <audio id="audio-Q39_N" src="Q39_N.mp3" type="audio/mpeg"></audio>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            function playAudio(audioFileName) {
+                const audio = document.getElementById('audio-' + audioFileName.replace('.mp3', ''));
+                if (audio) {
+                    // 他の再生中の音声を停止
+                    document.querySelectorAll('audio').forEach(function(el) {
+                        if (el.id && el.id.startsWith('audio-') && el !== audio) {
+                            el.pause();
+                            el.currentTime = 0;
+                        }
+                    });
+                    // 対象の音声を再生
+                    audio.play();
+                } else {
+                    console.error("Audio element not found with ID:", 'audio-' + audioFileName.replace('.mp3', ''));
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
